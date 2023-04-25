@@ -1,3 +1,4 @@
+import { useSelect } from '../hooks/useSelect'
 import './Formulario.css'
 import { Selects } from './Selects'
 
@@ -11,6 +12,9 @@ const OPCIONES = [
 ]
 
 export const Formulario = () => {
+
+    const { noticiaSelect, onSelectChange } = useSelect();
+
     return (
         <>
             <div className="row buscador">
@@ -18,7 +22,7 @@ export const Formulario = () => {
                     <form >
                         <h2 className="heading">Encuentra Noticias Por Categoria</h2>
 
-                        <Selects opciones={OPCIONES} />
+                        <Selects onSelectChange={onSelectChange} opciones={OPCIONES} />
 
                         <button className="btn btn-warning w-100 p-2">Buscar</button>
                     </form>

@@ -4,12 +4,13 @@ interface SelectProps {
     opciones: {
         value: string;
         label: string;
-    }[]
+    }[],
+    onSelectChange: ({ target }: React.ChangeEvent<HTMLSelectElement>) => void
 }
 
-export const Selects = ({ opciones }: SelectProps) => {
+export const Selects = ({ opciones, onSelectChange }: SelectProps) => {
     return (
-        <select defaultValue={'general'} className='form-select my-2'>
+        <select onChange={onSelectChange} defaultValue={'general'} className='form-select my-2'>
 
             <option value="general">General</option>
             {
